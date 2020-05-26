@@ -12,13 +12,13 @@ with open('files/users.json', 'r') as file:
     users_data = json.loads(file.read())
     user_list = []
     for user in users_data:
-        new_dict = {'name': user['name'], 'gender': user['gender'], 'address': user['address']}
-        user_list.append(new_dict)
+        new_users = {'name': user['name'], 'gender': user['gender'], 'address': user['address']}
+        user_list.append(new_users)
 
-data = []
+result_data = []
 for user, book in zip(user_list, book_list):
-    data.append({'name': user['name'], 'gender': user['gender'], 'address': user['address'], 'books': [book]})
+    result_data.append({'name': user['name'], 'gender': user['gender'], 'address': user['address'], 'books': [book]})
 
 with open('my_json.json', 'w') as file:
-    s = json.dumps(data, indent=4)
+    s = json.dumps(result_data, indent=4)
     file.write(s)
